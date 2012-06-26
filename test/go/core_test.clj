@@ -21,4 +21,6 @@
     (is (= (valid-move? (play-stone (new-board 3) [0 0] :black)
                       [0 0]
                       :black)
-           false))))
+           false)))
+  (testing "Playing outside the left bound is invalid"
+    (is (= (valid-move? (new-board 3) [-1 0] :black) false))))
