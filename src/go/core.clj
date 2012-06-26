@@ -10,6 +10,9 @@
 
 (defn new-board [size] {:size size :stones {}})
 
+(defn neighbours [[x y]]
+  (set (map (fn [[dx dy]] [(+ x dx) (+ y dy)]) [[1 0] [-1 0] [0 1] [0 -1]])))
+
 (defn valid-move? [{stones :stones size :size} [x y] colour]
   (and (not (contains? stones [x y]))
        (<= 0 x (dec size))

@@ -38,4 +38,11 @@
                      [0 0]
                      :black)
            false))
-    ))
+    (is (= (hostile? (new-board 3)
+                     [0 -1]
+                     :black)
+           true)))
+
+  (testing "neighbours produces a seq of the adjacent squares"
+    (is (= #{[0 1] [1 0] [2 1] [1 2]}
+           (neighbours [1 1])))))
