@@ -16,4 +16,9 @@
   (testing "I'm allowed to make a valid move"
     (let [board (new-board 3)]
       (is (= true
-             (valid-move board [0 0] :black))))))
+             (valid-move? board [0 0] :black)))))
+  (testing "Playing to an occupied location is invalid"
+    (is (= (valid-move? (play-stone (new-board 3) [0 0] :black)
+                      [0 0]
+                      :black)
+           false))))

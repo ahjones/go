@@ -6,9 +6,9 @@
 
 (defn new-board [size] {:size size :stones {}})
 
-(defn valid-move [{stone :stones size :size} pos colour]
-true
-  )
+(defn valid-move? [{stones :stones size :size} pos colour]
+  (not (contains? stones pos)))
+
 (defn -main
   "I don't do a whole lot."
   [& args]
