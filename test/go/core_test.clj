@@ -8,4 +8,12 @@
   (testing "I have a board"
     (let [board (new-board 3)]
       (is (= {:size 3 :stones {[0 0] :black}}
-             (play-stone board [0 0] :black))))))
+             (play-stone board [0 0] :black)))))
+  (testing "I can't play the same place twice"
+    (let [board (new-board 3)]
+      (is (= {:size 3 :stones {[0 0] :black}}
+             (play-stone (play-stone board [0 0] :black) [0 0] :black)))))
+  (testing "I'm allowed to make a valid move"
+    (let [board (new-board 3)]
+      (is (= true
+             (valid-move board [0 0] :black))))))
