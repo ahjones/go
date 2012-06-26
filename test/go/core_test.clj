@@ -22,5 +22,8 @@
                       [0 0]
                       :black)
            false)))
-  (testing "Playing outside the left bound is invalid"
-    (is (= (valid-move? (new-board 3) [-1 0] :black) false))))
+  (testing "Playing outside the bounds is invalid"
+    (is (= (valid-move? (new-board 3) [-1 0] :black) false))
+    (is (= (valid-move? (new-board 3) [17 0] :black) false))
+    (is (= (valid-move? (new-board 3) [3 0] :black) false))
+    (is (= (valid-move? (new-board 3) [0 -1] :black) false))))

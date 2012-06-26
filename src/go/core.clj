@@ -7,7 +7,10 @@
 (defn new-board [size] {:size size :stones {}})
 
 (defn valid-move? [{stones :stones size :size} [x y] colour]
-  (and (not (contains? stones [x y])) (>= x 0)))
+  (and (not (contains? stones [x y]))
+       (<= 0 x (dec size))
+       (<= 0 y (dec size))
+       ))
 
 (defn -main
   "I don't do a whole lot."
