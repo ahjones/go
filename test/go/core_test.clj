@@ -6,6 +6,6 @@
 
 (deftest a-test
   (testing "I have a board"
-    (def board {:size 3 :stones {}})
-    (is (= {:size 3 :stones {[0 0] :black}}
-           (play-stone board [0 0] :black)))))
+    (let [board (new-board 3)]
+      (is (= {:size 3 :stones {[0 0] :black}}
+             (play-stone board [0 0] :black))))))
