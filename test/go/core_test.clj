@@ -26,4 +26,16 @@
     (is (= (valid-move? (new-board 3) [-1 0] :black) false))
     (is (= (valid-move? (new-board 3) [17 0] :black) false))
     (is (= (valid-move? (new-board 3) [3 0] :black) false))
-    (is (= (valid-move? (new-board 3) [0 -1] :black) false))))
+    (is (= (valid-move? (new-board 3) [0 -1] :black) false))
+    (is (= (valid-move? (new-board 3) [0 4] :black) false)))
+  
+  (testing "Hostile location is reported as hostile"
+    (is (= (hostile? (play-stone (new-board 3) [0 0] :white)
+                     [0 0]
+                     :black)
+           true))
+    (is (= (hostile? (play-stone (new-board 3) [0 0] :black)
+                     [0 0]
+                     :black)
+           false))
+    ))

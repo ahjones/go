@@ -1,3 +1,7 @@
+
+
+
+
 (ns go.core)
 
 (defn play-stone [board [x y] colour]
@@ -11,6 +15,9 @@
        (<= 0 x (dec size))
        (<= 0 y (dec size))
        ))
+
+(defn hostile? [{:keys [stones size]} pos colour]
+  (not= colour (stones pos)))
 
 (defn -main
   "I don't do a whole lot."
