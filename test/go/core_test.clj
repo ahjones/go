@@ -45,4 +45,13 @@
 
   (testing "neighbours produces a seq of the adjacent squares"
     (is (= #{[0 1] [1 0] [2 1] [1 2]}
-           (neighbours [1 1])))))
+           (neighbours [1 1]))))
+
+  (testing "Groups are adjacent stones of the same colour"
+    (= #{[5 5] [5 6]}
+       (group
+        (-> (new-board 10)
+            (play-stone [5 5] :black)
+            (play-stone [5 6] :black)
+            (play-stone [9 9] :black))
+        [5 5]))))
